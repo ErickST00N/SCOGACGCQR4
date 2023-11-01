@@ -1,56 +1,126 @@
-import React, { useState, useEffect } from "react";
+//Cosas de react
+import React, { useState, useEffect, Suspense } from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import reportWebVitals from "./reportWebVitals";
-import "bootstrap/dist/css/bootstrap.min.css";
-import Menu from "./components/Menu";
-import SignIn from "./components/SignIn";
-import App from "./App";
 import { BrowserRouter as Router } from "react-router-dom";
-import { Route, Routes, NavLink, Link } from "react-router-dom";
+import { Navigate, Route, Routes, BrowserRouter } from "react-router-dom";
 
-// import appCredenciales from './firebaseConfig.jsx';
-// import { getAuth, onAuthStateChanged } from 'firebase/auth';
+//Estilos
+import "./index.css";
+//Bootstrap
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap";
+import "bootstrap/dist/js/bootstrap.bundle";
+//APP
+import App from "./App";
+//Components
+import appCredenciales from "./firebaseConfig";
+import MenuLateralDerecho from "./components/Menu/MenuClass"
+import { getAuth, onAuthStateChanged, updateCurrentUser } from "firebase/auth";
 
-// const auth = getAuth(appCredenciales);
+import QRCode from "react-qr-code";
+import Menu from "./components/Menu";
+const auth = getAuth(appCredenciales);
 
-// function Sing (){
-//   const [usuario, setUsuario] = useState(null);
+ function QrAutenticate() {
+   const [matricula, setMatricula] = useState("");
+   const [qrCodeValue, setQrCodeValue] = useState("");
+   const [usuario, setUsuario] = useState(null);
+   useEffect(() => {
+     const unsubscribe = onAuthStateChanged(auth, (usuarioFirebase) => {
+       if (usuarioFirebase) {
+         setUsuario(usuarioFirebase);
+       } else {
+         setUsuario(null);
+       }
+     });
+     return () => {
+       // Realizar limpieza cuando el componente se desmonta, si es necesario
+       unsubscribe();
+     };
+   }, []);
+   const handleChange = (event) => {
+     setMatricula(event.target.value);
+   };
+   const handleSubmit = () => {
+     setQrCodeValue(matricula);
+   };
+   return (
+     <>
+       <div className="App">
+         {/* {usuario ? <Home correoUser={usuario.email} /> : <Loging />} */}
+         <header className="App-header">{/* Resto de tu componente */}</header>
+       </div>
+       <div className="App">
+         <header className="App-header">
+           <QRCode
+             value={qrCodeValue}
+             bgColor={"cyan"}
+             fgColor={"#000"}
+             level={"M"}
+             size={"256"}
+             viewBox={`0 0 256 256`}
+             title={qrCodeValue}
+           />
+           <input
+             type="text"
+             name="matricula"
+             value={setMatricula}
+             onChange={handleChange}
+           />
+           <button onClick={handleSubmit}>Generar QR</button>
+         </header>{" "}
+       </div>
+     </>
+   );
+ }
 
-// useEffect(() => {
-//   const unsubscribe = onAuthStateChanged(auth, (usuarioFirebase) => {
-//     if (usuarioFirebase) {
-//       setUsuario(usuarioFirebase);
-//     } else {
-//       setUsuario(null);
-//     }
-//   });
+// Componente que muestra el email del usuario si está autenticado
+ function Sing() {
+   const [usuario, setUsuario] = useState(null);
 
-//   return () => {
-//     // Realizar limpieza cuando el componente se desmonta, si es necesario
-//     unsubscribe();
-//   };
-// }, []);
+   useEffect(() => {
+     // Configuración para verificar el estado de autenticación
+     // Si el usuario está autenticado, muestra su email; de lo contrario, muestra un mensaje
+   }, []);
 
-// return (<> {usuario ? <p> Email: {usuario.email}</p> :<p>No Email. </p>}
-// </>);
-// }
+   return (
+     <>
+       {usuario ? <p> Email: {usuario.email}</p> : <p>No Email. </p>}
+     </>
+   );
+ }
 
-const menuu = ReactDOM.createRoot(document.getElementById("menu"));
-menuu.render(
-<Router><Menu /></Router>);
-const signin = ReactDOM.createRoot(document.getElementById("signin"));
-signin.render(<Router><SignIn /></Router>);
+
+
+// // Renderiza el componente SignIn en el elemento con id "signin"
+// const signin = ReactDOM.createRoot(document.getElementById("signin"));
+// signin.render(
+//   <Router>
+//     <SignIn />
+//   </Router>
+// );
+
+// Renderiza el componente App en el elemento con id "root"
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<Router><App /></Router>);
+root.render(
+  <Router><Suspense fallback={'Conectando la app...'}><App /></Suspense></Router>
+);
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://cra.link/PWA
+
+/**
+ * nav, es la eitqueta div con el id nav para renderizar todo nuestro codigo
+ * 
+ * 
+ */
+const nav = ReactDOM.createRoot(document.getElementById("nav"))
+nav.render(
+  
+  
+)
+// Desregistra el servicio de trabajador de servicio (service worker) si es necesario
 serviceWorkerRegistration.unregister();
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// Mide el rendimiento de la aplicación y registra los resultados
+reportWebVitals(console.log);

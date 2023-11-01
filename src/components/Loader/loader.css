@@ -1,0 +1,35 @@
+.loader {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    animation: spin 1.2s linear infinite;
+    /* Cambiar el color del borde a verde #038C4C */
+}
+
+.loader::before,
+.loader::after {
+    content: '';
+    position: absolute;
+    border-radius: inherit;
+}
+
+.loader::before {
+    width: 100%;
+    height: 100%;
+    background-image: conic-gradient( from 0deg, #038C4C 0%, #C1D9CB 25%, #7BA68A 50%, #f25C05 75%, #F29877 100%);
+}
+
+.loader::after {
+    width: 85%;
+    height: 85%;
+    background-color: #fff;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

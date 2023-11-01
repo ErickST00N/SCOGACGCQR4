@@ -1,0 +1,30 @@
+ .MapSchool {
+     margin-top: 2rem;
+ }
+ 
+ .MapSchool>iframe:hover {
+     animation: subMap 0.7s;
+     animation-iteration-count: 1;
+     animation-direction: normal;
+ }
+ 
+ @keyframes subMap {
+     25% {
+         box-shadow: 2.5px 2.5px 5px 1px;
+     }
+     50% {
+         box-shadow: 5px 5px 10px 2px;
+     }
+     75% {
+         box-shadow: 7.5px 7.5px 15px 3px;
+     }
+     100% {
+         box-shadow: 10px 10px 15px 4px;
+     }
+ }
+ 
+ .MapSchool>iframe {
+     width: 100%;
+     height: 500px;
+     margin: auto;
+ }

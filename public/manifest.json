@@ -1,6 +1,6 @@
 {
-    "short_name": "sistema-de-control-en-credenciales-con-codigo-qr",
-    "name": "sistema-de-control-en-credenciales-con-codigo-qr",
+    "short_name": "QRChecking",
+    "name": "QRChecking",
     "icons": [{
             "src": "logo192.png",
             "sizes": "64x64 32x32 24x24 16x16",

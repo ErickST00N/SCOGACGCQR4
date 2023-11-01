@@ -1,0 +1,46 @@
+/* Estilos para el encabezado */
+
+.header {
+    background-color: #28a745;
+    text-align: center;
+    padding: 20px;
+    color: white;
+}
+
+
+/* Estilos para los títulos */
+
+h1,
+h2 {
+    color: #333;
+}
+
+
+/* Estilos para la lista de datos personales */
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+
+/* Estilos para el fondo del cuerpo de la página */
+
+body {
+    background-color: #f8f9fa;
+    padding: 20px;
+}
+
+
+/* Estilos para el contenido principal */
+
+.container {
+    background-color: white;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

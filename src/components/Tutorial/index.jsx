@@ -1,7 +1,8 @@
 import React from 'react';
+import PasswordChange from '../PasswordChange';
 
 function Tutorial() {
-    return <div>Tutorial</div>
+    return <div><PasswordChange /></div>
 }
 
 export default Tutorial;

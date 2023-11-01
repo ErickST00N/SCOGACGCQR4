@@ -23,7 +23,20 @@ code {
 }
 
 #root {
-    z-index: 1!important;
+    /* z-index: 1!important;
     filter: blur(93px);
-    position: relative;
+    position: relative; */
+}
+
+#nav {
+    position: absolute;
+    height: 100rem;
+    width: auto;
+}
+
+#nav>* {
+    position: fixed;
+    height: 100%;
+    width: auto;
+    z-index: 1;
 }

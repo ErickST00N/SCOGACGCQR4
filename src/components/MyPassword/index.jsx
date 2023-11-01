@@ -1,7 +1,8 @@
 import React from 'react';
+import PasswordChange from '../PasswordChange';
 
 function MyPassword() {
-    return <div>MyPassword</div>
+    return <PasswordChange />
 }
 
 export default MyPassword;

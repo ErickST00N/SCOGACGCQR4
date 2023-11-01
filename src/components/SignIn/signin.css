@@ -1,25 +1,56 @@
-html,
-body {
-    height: 100%;
+.signing {
+
+    padding: 0;
+    width: 720px !important;
+    ;
+    margin: 0!important;
+    margin-top: -1rem!important;
+    background-color: #ffffff;
+}
+.signing .form-floating:focus-within {
+    z-index: 10;
 }
 
-.form-signin {
-    max-width: 330px;
-    padding: 1rem;
-}
-
-.form-signin .form-floating:focus-within {
-    z-index: 2;
-}
-
-.form-signin input[type="email"] {
-    margin-bottom: -1px;
+.signing input[type="email"] {
+    margin-bottom: 1px;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
 }
 
-.form-signin input[type="password"] {
+.recaptcha {
+    margin-bottom: 10px;
+}
+
+.signing input[type="password"] {
     margin-bottom: 10px;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
+}
+
+.imgLogin {
+    margin: auto;
+    border: 0;
+    padding: 0;
+    color: #fff;
+}
+.modal-header{
+
+    align-items: flex-start!important;
+
+}
+.container{
+    padding: 0!important;
+}
+.modal-content{
+    align-items: flex-start;
+}
+.BoxGreen {
+    width: 100%;
+    background: #7BA68A;
+    border-bottom-left-radius: 30%;
+    border-bottom-right-radius: 17.5%;
+    
+    box-shadow: var(--bs-box-shadow-sm) !important;
+    padding: 0;
+    margin: 0;
 }

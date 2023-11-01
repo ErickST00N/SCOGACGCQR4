@@ -1,0 +1,12 @@
+.fondoC {
+    /* background-color: #d4d4d438; */
+    border: 1.3rem;
+    border-color: black;
+    margin: 50px auto;
+    padding: 2rem;
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+}

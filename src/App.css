@@ -1,3 +1,40 @@
+:root{
+  --VerdeFuerte: #038C4C;
+  --VerdeFuerte-2: #00743e;
+  --VerdeGris: #C1D9CB;
+  --VerdeClaro: #7BA68A;
+  --VerdeClaro-2: #5f826c;
+  --NaranjaFuerte: #f25c05;
+  --NaranjaClaro: #f29877;
+  --GrisNegro: #c0afaf;
+  --Gris: rgb(82, 82, 82);
+}
+
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  background-color: var(--NaranjaFuerte);
+}
+
+::-webkit-scrollbar-track {
+  background-color: #d0d0d0;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--VerdeClaro-2);
+  border-radius: 1px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--VerdeFuerte);
+}
+
+::-webkit-scrollbar-button:start, ::-webkit-scrollbar-button:end {
+  background-color: var(--Gris);
+}
+
+
 .App {
   text-align: center;
 }
